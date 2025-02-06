@@ -32,7 +32,6 @@ public class BasePage {
 	
 	public void hightLighterMethod(WebDriver driver,WebElement element) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].setAttribute('style','background: yellow; border: 3px solid red;');",element);
 	}
 	
 	/*
@@ -42,7 +41,6 @@ public class BasePage {
 		Actions action = new Actions(driver);
 		action.moveToElement(element).build().perform();
 		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
-		hightLighterMethod(driver, element);
 		System.out.print("Moved to the "+element);
 		
 	}
