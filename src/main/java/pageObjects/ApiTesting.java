@@ -16,41 +16,25 @@ public class ApiTesting {
 
 	public static void main(String[] args) {
 
-//		RestAssured.baseURI = "https://rahulshettyacademy.com";
-//		
-//		RequestSpecification request = RestAssured.given();
-//		response = request.queryParam("key", "qaclick123").header("Content-Type","application/json").body("{\r\n"
-//				+ "  \"location\": {\r\n"
-//				+ "    \"lat\": -38.383494,\r\n"
-//				+ "    \"lng\": 33.427362\r\n"
-//				+ "  },\r\n"
-//				+ "  \"accuracy\": 50,\r\n"
-//				+ "  \"name\": \"Frontline house\",\r\n"
-//				+ "  \"phone_number\": \"(+91) 983 893 3937\",\r\n"
-//				+ "  \"address\": \"29, side layout, cohen 09\",\r\n"
-//				+ "  \"types\": [\r\n"
-//				+ "    \"shoe park\",\r\n"
-//				+ "    \"shop\"\r\n"
-//				+ "  ],\r\n"
-//				+ "  \"website\": \"http://google.com\",\r\n"
-//				+ "  \"language\": \"French-IN\"\r\n"
-//				+ "}\r\n"
-//				+ "")
-//				.when().post("maps/api/place/add/json");
-////				.then().log().all().assertThat().statusCode(200)
-////				.body("scope", equalTo("APP"));
-//		System.out.println(response.getStatusCode());
-//		System.out.println(response.asString());
-//		String placeID = response.jsonPath().getString("place_id");
-//		System.out.println("Place ID is : "+placeID);
-////		System.out.println(response.getStatusLine());
-//		
-////		Get collection
-//		response = request.queryParam("key", "qaclick123").queryParam("place_id", placeID).when().get("maps/api/place/get/json");
-//		System.out.println(response.asString());
-//		Assert.assertEquals("29, side layout, cohen 09",response.jsonPath().getString("address"), "Address Mismatch");
-////		Assert.ass
-//		System.out.println("SUccefully validated");
+		RestAssured.baseURI = "https://rahulshettyacademy.com";
+		
+		RequestSpecification request = RestAssured.given();
+		response = request.queryParam("key", "qaclick123").header("Content-Type","application/json").body(Payload.addAddress())
+				.when().post("maps/api/place/add/json");
+//				.then().log().all().assertThat().statusCode(200)
+//				.body("scope", equalTo("APP"));
+		System.out.println(response.getStatusCode());
+		System.out.println(response.asString());
+		String placeID = response.jsonPath().getString("place_id");
+		System.out.println("Place ID is : "+placeID);
+		System.out.println(response.getStatusLine());
+		
+//		Get collection
+		response = request.queryParam("key", "qaclick123").queryParam("place_id", placeID).when().get("maps/api/place/get/json");
+		System.out.println(response.asString());
+		Assert.assertEquals("29, side layout, cohen 09",response.jsonPath().getString("address"), "Address Mismatch");
+
+		System.out.println("SUccefully validated");
 		
 		
 		

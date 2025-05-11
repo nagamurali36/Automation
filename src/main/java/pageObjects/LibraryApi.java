@@ -33,16 +33,6 @@ public class LibraryApi {
 	}
 	
 	
-	
-//	@Test
-//	public void getBook(String id) {
-//	this.id=id;
-//		String response = given().queryParam("AuthorName", "John foe").get("/Library/GetBook.php").then().assertThat().statusCode(200)
-//				.extract().response().asString();
-//		System.out.println(response);
-//		JsonPath js = new JsonPath(response);
-//		js.getString("response.Name");
-//	}
 	@Test
 	public void deleteBook() {
 		System.out.println(id);

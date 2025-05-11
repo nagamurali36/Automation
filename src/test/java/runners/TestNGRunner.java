@@ -9,7 +9,7 @@ import pageObjects.landingPageObject;
 
 @CucumberOptions(features="src/test/resources/features",
 glue="stepDefinitions",
-monochrome=false,
+monochrome=true,
 tags="@searchProduct",
 //stepNotifications=true,
 plugin= {"html:target/Cucumber-report/cucumber.html",
