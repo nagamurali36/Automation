@@ -1,11 +1,15 @@
 package pageObjects;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -35,12 +39,17 @@ public class landingPageObject {
 		System.out.println("Xlocation is "+p.getX());
 		System.out.println("Y Location is "+p.getY());
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofHours(20));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("")));
 		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 		Select s = new Select(s1);
 		List <WebElement> list1 = s.getOptions();
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File f =ts.getScreenshotAs(OutputType.FILE);
+		File target = new File("./scennshot"+".png");
 	}
 	public String getProductName() {
 		return driver.findElement(productName).getText();
+
 		
 	}
 	public void stop() {
